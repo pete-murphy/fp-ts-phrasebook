@@ -6,3 +6,11 @@
 
   font-family: var(--sans-font);
 }
+
+ul {
+  padding: 0;
+  margin: 0;
+  li {
+    list-style: none;
+  }
+}

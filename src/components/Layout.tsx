@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { FC } from "react"
+import React, { FC, ReactChildren } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import { Header } from "./Header"
