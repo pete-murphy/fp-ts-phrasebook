@@ -19,6 +19,7 @@ module.exports = {
         gfm: true,
         // Plugins configs
         plugins: [
+          `gatsby-remark-smartypants`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {

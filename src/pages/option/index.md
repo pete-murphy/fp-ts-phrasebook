@@ -47,14 +47,14 @@ const none: Option<never> = []
 const some = <T>(x: T): Option<T> => [x]
 ```
 
-We could also define a utility function for converting `null` values to our option type
+We could also define a utility function for converting `null` or `undefined` values to our option type
 
 ```ts
 const fromNullable = <T>(x: T | null | undefined): Option<T> =>
   x == null ? none : some(x)
 ```
 
-Now if we refactor our `getUserName`
+Now we can refactor our `getUserName` function.
 
 ```ts
 const getUserName = (users: Array<User>, id: number): Option<string> => {
@@ -64,9 +64,9 @@ const getUserName = (users: Array<User>, id: number): Option<string> => {
 ```
 
 Note that the return type went from `string | undefined` to `Option<string>`, so any one using this function downstream has to reckon with that and explicitly handle the fact that the value might be missing.
-(We'll talk about common patterns for extracting the value "out of" and `Option` below).
+(We'll talk about common patterns for extracting the value "out of" an `Option` below).
 The `map` here is nothing magic—it's just `Array.prototype.map`, which returns an empty array when called on an empty array, or transforms the inner values of an array when there are any.
-It's no accident that this is exactly how `map` works for `Option`; it safely ignores the `none` case and only applies the passed in function to the `some` case.
+It's no accident that this is exactly how `map` works for `Option` as well; it safely ignores the `none` case and only applies the passed in function to the `some` case.
 
 ## Chaining options
 
@@ -90,7 +90,7 @@ const getUserAddress = (users: Array<User>, id: number) => {
 ```
 
 This might look like what we want, but if we inspect the return type we are actually returning `Option<string | undefined>`.
-This is kind of a bummer and really undermines our whole operation of making the possibility of failure explicit.
+This is kind of a bummer and really undermines our whole endeavor of making the possibility of failure explicit.
 
 Let's first try to use `fromNullable` again to change that `string | undefined` to an `Option<string>`.
 
@@ -117,7 +117,9 @@ const getUserAddress = (users: Array<User>, id: number) => {
 }
 ```
 
-Extending the built-in prototypes is usually a bad idea, so from here on we'll just use `Option` class that `fp-ts` provides instead of our own version.
+Yay!
+Now we've reduced our return type to a single layered `Option<string>`.
+However, extending the built-in prototypes is usually a bad idea, so from here on we'll just use `Option` class that `fp-ts` provides instead of our own version.
 
 ## Getting the value "out of" the option
 

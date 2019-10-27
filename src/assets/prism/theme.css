@@ -2,6 +2,7 @@
   --background: rgb(40, 44, 52);
   --text: white;
   --code: #fac86330;
+  --code-text: #353b45;
   --char: #d8dee9;
   --comment: #b2b2b2;
   --keyword: #c5a5c5;
@@ -24,7 +25,7 @@
   color: var(--text);
   padding: 0 2rem;
   margin: 0 -2rem;
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
   overflow: auto;
   tab-size: 1.5em;
 }
@@ -34,7 +35,6 @@
 .gatsby-highlight > pre.prism-code {
   height: auto !important;
   margin: 1rem;
-  font-size: 1rem;
   line-height: 1.2rem;
   white-space: pre-wrap;
   word-break: break-word;

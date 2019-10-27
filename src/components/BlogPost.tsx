@@ -12,6 +12,7 @@ export default function Template({ data }: any) {
             padding: 1rem 0;
             code {
               background: var(--code);
+              font-size: 0.9rem;
             }
           }
           h2 {
