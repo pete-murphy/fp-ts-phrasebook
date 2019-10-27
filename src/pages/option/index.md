@@ -63,7 +63,8 @@ const getUserName = (users: Array<User>, id: number): Option<string> => {
 }
 ```
 
-Note that the return type went from `string | undefined` to `Option<string>`, so any one using this function downstream has to take that into account.
+Note that the return type went from `string | undefined` to `Option<string>`, so any one using this function downstream has to reckon with that and explicitly handle the fact that the value might be missing.
+(We'll talk about common patterns for extracting the value "out of" and `Option` below).
 The `map` here is nothing magic—it's just `Array.prototype.map`, which returns an empty array when called on an empty array, or transforms the inner values of an array when there are any.
 It's no accident that this is exactly how `map` works for `Option`; it safely ignores the `none` case and only applies the passed in function to the `some` case.
 
@@ -100,7 +101,7 @@ const getUserAddress = (users: Array<User>, id: number) => {
 }
 ```
 
-OK, but now we're returning a nested `Option<Option<string>>`, but really we only care about the cases where either (a) that address exists or (b) it doesn't.
+OK, but now we're returning a nested `Option<Option<string>>` when really we only care about the cases where either that address exists or it doesn't.
 So it seems like what we really want is just an `Option<string>`.
 Is there any way of collapsing those nested `Option`s down to one layer?
 
@@ -120,4 +121,4 @@ Extending the built-in prototypes is usually a bad idea, so from here on we'll j
 
 ## Getting the value "out of" the option
 
--- talk about (implement?) getOrElsea / folding
+`@TODO`: Talk about (implement?) `getOrElse` / `fold`ing
