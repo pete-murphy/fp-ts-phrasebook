@@ -3,8 +3,20 @@
 :root {
   --sans-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --mono-font: "SF Mono", "Roboto Mono", monospace;
 
   font-family: var(--sans-font);
+}
+
+code,
+pre {
+  font-family: var(--mono-font);
+}
+
+.container {
+  width: 100%;
+  max-width: 60ch;
+  margin: 0 auto;
 }
 
 ul {

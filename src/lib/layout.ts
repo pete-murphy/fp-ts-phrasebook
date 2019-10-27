@@ -5,7 +5,7 @@ export enum Breakpoint {
   Min1200 = "Min1200",
 }
 
-const breakpointMap: { [key in Breakpoint]: string } = {
+const breakpointMap: Record<Breakpoint, string> = {
   [Breakpoint.Max600]: "@media (max-width: 600px)",
   [Breakpoint.Min600]: "@media (min-width: 600px)",
   [Breakpoint.Min900]: "@media (min-width: 900px)",

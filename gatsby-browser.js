@@ -5,3 +5,6 @@
  */
 
 // You can delete this file if you're not using it
+
+require("assets/prism/theme.css")
+require("typeface-roboto-mono")
