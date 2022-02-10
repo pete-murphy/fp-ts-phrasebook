@@ -19,7 +19,7 @@
     "gatsby-transformer-remark": "^2.6.30",
     "gatsby-transformer-sharp": "^2.2.20",
     "gh-pages": "^2.1.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
